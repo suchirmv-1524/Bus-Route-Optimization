@@ -154,32 +154,20 @@ int main() {
     for(int i = 0; i < n; i++)
         v[i] = 0;
 while (fgets(line, sizeof(line), file)) {
-        // Tokenize the line to get words separated by a comma
         token1 = strtok(line, ",");
         token2 = strtok(NULL, ",");
         
-        
-            // Remove leading and trailing whitespaces and newline characters
-            if (token1 != NULL) {
+        if (token1 != NULL) {
             token1[strcspn(token1, "\r\n")] = '\0';
-            //printf("Token 1: %s\n", token1);
         }
 
         if (token2 != NULL) {
             token2[strcspn(token2, "\r\n")] = '\0';
-            //printf("Token 2: %s\n", token2);
-        }
-
-            
-            
+        } 
             int a=findIndex(uniqueNames,token1);
-            //printf("-------%d--------\n",a);
             int b=findIndex(uniqueNames,token2);
-            //printf("-------%d--------\n",b);
             adj[a][b]=1;
             adj[b][a]=1;
-            // Move to the next tokens in the same line
-
         }
     int w, s;
     
@@ -282,7 +270,6 @@ while (fgets(line, sizeof(line), file)) {
                     
                     if(components(n, t, v) > 2)
                     {
-                        //printf("%s is an articulation point\n", uniqueNames[x]);
                         e=e+1;
                         int flag = 0;
                         
